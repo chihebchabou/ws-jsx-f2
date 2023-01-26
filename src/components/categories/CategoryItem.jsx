@@ -1,19 +1,21 @@
 import React from 'react';
-import stay from './stay.jpg';
 
-const CategoryItem = () => {
-  const category = {
-    categoryName: 'Stays',
-    description: 'Homes, Boutique & more',
-    image: stay,
-  };
+const CategoryItem = props => {
+  console.log(props); // {category: {...}}
+  const { category } = props;
+  const { image, categoryName, description } = category;
   return (
     <div className="col-md-3">
       <div className="card mb-4">
-        <img src={category.image} alt="" className="card-img-top" />
+        <img
+          src={image}
+          alt=""
+          className="card-img-top"
+          style={{ height: 200, objectFit: 'cover' }}
+        />
         <div className="card-body">
-          <h3 className="text-primary">{category.categoryName}</h3>
-          <p className="card-text">{category.description}</p>
+          <h3 className="text-primary">{categoryName}</h3>
+          <p className="card-text">{description}</p>
         </div>
       </div>
     </div>
